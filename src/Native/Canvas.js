@@ -1,4 +1,4 @@
-var _elm_community$canvas$Native_Canvas = function () {
+var _mrozbarry$canvas$Native_Canvas = function () {
 
   function LOG(msg) {
     // console.log(msg);

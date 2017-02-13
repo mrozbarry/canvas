@@ -1,7 +1,7 @@
 {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "summary": "The canvas API in Elm",
-    "repository": "https://github.com/elm-community/canvas.git",
+    "repository": "https://github.com/mrozbarry/canvas.git",
     "license": "BSD3",
     "source-directories": [
         "src"
