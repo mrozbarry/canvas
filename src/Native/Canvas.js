@@ -202,31 +202,39 @@ var _mrozbarry$canvas$Native_Canvas = function () {
 
           case "Scaled":
 
-            var destPosition = drawImageOp._0
-            var destSize = drawImageOp._1
+            var destPosition = drawImageOp._0;
+            var destSize = drawImageOp._1;
             ctx.drawImage(
               srcCanvas,
               destPosition.x, destPosition.y,
               destSize.width, destSize.height
-            )
+            );
             break;
 
           case "CropScaled":
 
-            var srcPosition = drawImageOp._0
-            var srcSize = drawImageOp._1
-            var destPosition = drawImageOp._2
-            var destSize = drawImageOp._3
+            var srcPosition = drawImageOp._0;
+            var srcSize = drawImageOp._1;
+            var destPosition = drawImageOp._2;
+            var destSize = drawImageOp._3;
+
             ctx.drawImage(
               srcCanvas,
               srcPosition.x, srcPosition.y,
               srcSize.width, srcSize.height,
               destPosition.x, destPosition.y,
               destSize.width, destSize.height
-            )
-            break
+            );
+            break;
         }
+        break;
 
+      case "ClearRect" :
+
+        var position = drawOp._0;
+        var size = drawOp._1;
+
+        ctx.clearRect(position.x, position.y, size.width, size.height);
         break;
     }
   }

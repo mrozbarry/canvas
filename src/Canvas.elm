@@ -77,6 +77,7 @@ type DrawOp
     | BeginPath
     | PutImageData (Array Int) Size Position
     | DrawImage Canvas DrawImageParams
+    | ClearRect Position Size
 
 
 type CompositeOp
