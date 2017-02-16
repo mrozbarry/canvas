@@ -25,6 +25,15 @@ module Canvas
 # Basics
 @docs initialize, toHtml
 
+# Drawing
+@docs batch, DrawOp, CompositeOp, Cap, DrawImageParams
+
+# Image related
+@docs loadImage, Error
+
+# Raw canvas manipulation
+@docs getImageData, getSize, setSize
+
 -}
 
 import Html exposing (Html, Attribute)
@@ -58,6 +67,8 @@ type alias Size =
     { width : Int, height : Int }
 
 
+{-| A `DrawOp` is used inside a `batch` call.
+-}
 type DrawOp
     = Font String
     | StrokeText String Position
@@ -80,7 +91,8 @@ type DrawOp
     | DrawImage Canvas DrawImageParams
 
 
-
+{-| A `CompositeOp` is a param for `GlobalCompositeOp`.
+-}
 type CompositeOp
     = SourceAtop
     | SourceIn
@@ -109,12 +121,16 @@ type CompositeOp
     | Luminosity
 
 
+{-| A `Cap` is a param for `LineCap`
+-}
 type Cap
     = Butt
     | Round
     | Square
 
 
+{-| A `DrawImageParams` is a param for `DrawImage`
+-}
 type DrawImageParams
     = At Position
     | Scaled Position Size
@@ -143,6 +159,8 @@ toHtml =
     Native.Canvas.toHtml
 
 
+{-| `batch` takes a `List DrawOp`, a source `Canvas`, and returns a new `Canvas`
+-}
 batch : List DrawOp -> Canvas -> Canvas
 batch =
     Native.Canvas.batch
